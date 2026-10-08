@@ -1,79 +1,87 @@
-<!-- Профіль GitHub: цей файл показується на github.com/Michael1904,
-     бо репозиторій називається так само, як нік. -->
+<!-- GitHub profile README: shown on github.com/Michael1904 because the
+     repository is named after the account. -->
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2a0845,50:7b2ff7,100:c86bfa&height=200&section=header&text=Michael1904&fontSize=64&fontColor=ffffff&fontAlignY=36&desc=Фалатія%20·%20Minecraft%20·%20Web&descAlignY=58&descSize=18" width="100%" alt="Michael1904" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1e1b4b,50:4c1d95,100:7c3aed&height=180&section=header&text=Michael&fontSize=60&fontColor=ffffff&fontAlignY=36&desc=Full-Stack%20Developer&descAlignY=58&descSize=20" width="100%" alt="Michael — Full-Stack Developer" />
 
-<a href="https://github.com/Michael1904">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=800&color=C86BFA&center=true&vCenter=true&width=600&lines=Роблю+українського+Minecraft-сервер+Фалатія;Сайт+на+Next.js+%2B+PostgreSQL;Discord-боти+на+Python;Донати%2C+профілі%2C+3D-скіни%2C+вікі" alt="Typing SVG" />
-</a>
-
-<br/>
-
-<a href="https://discord.gg/5QXUCSsVVw"><img src="https://img.shields.io/badge/Discord-Фалатія-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
-<a href="https://www.youtube.com/@Falatia"><img src="https://img.shields.io/badge/YouTube-@Falatia-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube" /></a>
-<a href="https://www.tiktok.com/@falatia_official"><img src="https://img.shields.io/badge/TikTok-falatia__official-000000?style=for-the-badge&logo=tiktok&logoColor=white" alt="TikTok" /></a>
-<a href="https://falatiaofficial.fandom.com/uk/wiki/Main_Page"><img src="https://img.shields.io/badge/Fandom-вікі-FA005A?style=for-the-badge&logo=fandom&logoColor=white" alt="Fandom" /></a>
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&duration=3200&pause=900&color=A78BFA&center=true&vCenter=true&width=640&lines=TypeScript+%C2%B7+Next.js+%C2%B7+Node.js;Python+services+and+automation;PostgreSQL+data+modelling;From+schema+to+production" alt="TypeScript · Next.js · Node.js · Python · PostgreSQL" />
 
 </div>
 
----
+## About
 
-### 👾 Про мене
+Full-stack developer working mainly with **TypeScript / Next.js** on the web side and **Python** for backend services and automation, with **PostgreSQL** underneath.
 
-- 🟪 Розробляю **Фалатію** — український Minecraft-сервер: сайт, ботів і все, що між ними
-- 🌐 Сайт: магазин і донати, профілі гравців з 3D-скінами та гардеробом, вікі з редактором, статистика гри
-- 🤖 Discord-боти: видача донатів через RCON, спонсорки й бандли, модерація
-- 🗄️ Усе тримається на PostgreSQL: профілі, замовлення, бани, вайтліст, сесії гравців
+I build products end to end: data model and migrations, server logic and APIs, integrations with third-party platforms, and the interface on top. I care about systems that stay correct when things go wrong — server-side validation instead of trusting the client, idempotent operations that are safe to retry, transactional writes, and documentation that lets the next person maintain the code without guessing.
 
-### 🛠️ Стек
+- 🌐 Web applications with server rendering, OAuth sign-in and role-based access
+- ⚙️ Event-driven services that turn external events (payments, chat activity) into reliable actions
+- 🗄️ Relational schemas, query design and database operations in Docker on Linux
+- 📄 Technical specifications and handover docs for other developers
 
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=nextjs,react,ts,js,nodejs,tailwind,threejs&theme=dark" alt="Frontend" /><br/>
-  <img src="https://skillicons.dev/icons?i=py,postgres,docker,linux,git,github,vscode&theme=dark" alt="Backend and tools" />
-</p>
-
-### 🚀 Проєкти Фалатії
-
-| | Проєкт | Що це | Стек |
-|:-:|---|---|---|
-| 🌐 | **WebFalatia** | Сайт сервера: вхід через Discord, магазин з кодами замовлень, профілі з 3D-скіном і гардеробом, вікі з редактором, статистика гри, автоматичний розбан і прохідка | ![Next.js](https://img.shields.io/badge/-Next.js-000?logo=nextdotjs&logoColor=white) ![TS](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white) ![Postgres](https://img.shields.io/badge/-PostgreSQL-4169E1?logo=postgresql&logoColor=white) |
-| 💸 | **Bot_ds** | Донат-бот: ловить оплати Donatello, видає ранги, суфікси, монети й платівки через RCON, стежить за терміном спонсорок | ![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white) ![Discord](https://img.shields.io/badge/-py--cord-5865F2?logo=discord&logoColor=white) |
-| 🛡️ | **BabyBot** | Бот модерації Discord: фільтри чату, автоматичні покарання, кнопки для адмінів | ![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white) ![Discord](https://img.shields.io/badge/-Discord-5865F2?logo=discord&logoColor=white) |
-
-<sub>Репозиторії проєктів приватні.</sub>
-
-### 📊 Статистика
+## Tech stack
 
 <p align="center">
-  <img height="170" src="https://github-readme-stats.vercel.app/api?username=Michael1904&show_icons=true&include_all_commits=true&count_private=true&theme=tokyonight&title_color=c86bfa&icon_color=c86bfa&border_radius=12&hide_border=true&locale=uk" alt="GitHub stats" />
-  <img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Michael1904&layout=compact&langs_count=8&theme=tokyonight&title_color=c86bfa&border_radius=12&hide_border=true&locale=uk" alt="Top languages" />
+  <img src="https://skillicons.dev/icons?i=ts,js,nextjs,react,nodejs,express,tailwind,threejs&theme=dark" alt="Web stack" /><br/>
+  <img src="https://skillicons.dev/icons?i=py,postgres,sqlite,docker,linux,git,github,vscode&theme=dark" alt="Backend and tooling" />
 </p>
 
-<p align="center">
-  <img src="https://streak-stats.demolab.com?user=Michael1904&theme=tokyonight&ring=C86BFA&fire=C86BFA&currStreakLabel=C86BFA&hide_border=true&border_radius=12&locale=uk" alt="GitHub streak" />
-</p>
+## Selected work
 
-### 🏆 Трофеї
+### Game community platform · *private*
+Full-stack web platform for an online gaming community, built on Next.js and PostgreSQL.
+- OAuth sign-in with role-based permissions pulled from the community's chat platform
+- Storefront with server-side pricing and short order codes reconciled against incoming payments; unpaid orders expire automatically
+- Player profiles with real-time 3D character rendering and a cosmetics wardrobe (Three.js)
+- Collaborative knowledge base with a rich-text editor, revision history and conflict detection on concurrent edits
+- Activity analytics computed from session logs: totals, contribution heatmap, streaks, leaderboards
+- Rule-based moderation model: sanctions reference a ruleset, and each rule decides whether a sanction is eligible for self-service resolution
+- Data split across purpose-specific databases, with idempotent schema migrations applied on startup
 
-<p align="center">
-  <img src="https://github-trophies.vercel.app/?username=Michael1904&theme=tokyonight&no-frame=true&no-bg=true&margin-w=6&row=1&column=7" alt="Trophies" />
-</p>
+`TypeScript` `Next.js` `React` `PostgreSQL` `Three.js` `Auth.js`
 
-### 🐍 Активність
+### Payment fulfilment service · *private*
+Event-driven bot that automates fulfilment of digital purchases.
+- Parses incoming payment notifications and verifies the paid amount against the stored order before granting anything
+- Delivers entitlements to the game server over a remote-console protocol and assigns community roles
+- Manages subscription lifecycles: expiry reminders and automatic revocation when a term ends
+- Routes items that need human review through persistent approval workflows that survive restarts
+
+`Python` `asyncio` `PostgreSQL` `REST`
+
+### Automated chat moderation · *private*
+Moderation bot for a community chat server.
+- Multi-layer detection: normalised word lists, pattern matching and AI-based classification with a confidence threshold
+- Graduated sanctions — warnings escalate to timeouts — with one-click moderator actions and a persistent moderation log
+- Warning requests from trusted members go through an approval workflow
+- Word-list changes hot-reload without a restart
+
+`Python` `NLP` `Discord API`
+
+### [Hotel booking platform](https://github.com/Michael1904/MAUS)
+Bilingual (EN/UK) hotel website with room search, availability filters and online booking.
+- Next.js front end with a separate Express REST API
+- JWT authentication with hashed passwords and validated input
+- Email notifications, guest reviews and ratings, contact form with an embedded map
+
+`TypeScript` `Next.js` `Tailwind` `Express` `SQLite` `JWT`
+
+### [Telecom billing database](https://github.com/Michael1904/PostgreSQL)
+Relational model for a telephone exchange: subscribers, phone numbers, tariffs and call records.
+- Normalised schema with `CHECK` and foreign-key constraints enforcing business rules at the database level
+- Reproducible environment with Docker Compose (PostgreSQL + pgAdmin)
+- Python CLI for seeding data and producing formatted reports
+
+`PostgreSQL` `Python` `psycopg2` `Docker`
+
+## Activity
 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Michael1904/Michael1904/output/github-snake-dark.svg" />
-    <img src="https://raw.githubusercontent.com/Michael1904/Michael1904/output/github-snake.svg" alt="Змійка з'їдає календар комітів" width="100%" />
+    <img src="https://raw.githubusercontent.com/Michael1904/Michael1904/output/github-snake.svg" alt="Contribution graph" width="100%" />
   </picture>
 </p>
 
-<div align="center">
-
-<img src="https://api.visitorbadge.io/api/visitors?path=github.com%2FMichael1904&label=Переглядів%20профілю&countColor=%237b2ff7&style=for-the-badge" alt="Profile views" />
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:c86bfa,50:7b2ff7,100:2a0845&height=110&section=footer" width="100%" alt="" />
-
-</div>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:7c3aed,50:4c1d95,100:1e1b4b&height=100&section=footer" width="100%" alt="" />
