@@ -9,7 +9,7 @@
 
 </div>
 
-<img align="right" width="230" src="assets/tree-lantern.svg" alt="" />
+<img align="right" width="230" src="assets/tree-lantern-v2.svg" alt="" />
 
 ### About
 
