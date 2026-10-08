@@ -1,108 +1,61 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 420" width="400" height="420" role="img" aria-label="Animated tree">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420" width="420" height="420" role="img" aria-label="Animated tree">
   <style>
-    .sway   { transform-box: view-box; transform-origin: 200px 400px; animation: sway 7s ease-in-out infinite; }
-    .c1     { transform-box: fill-box; transform-origin: center; animation: breathe 5s ease-in-out infinite; }
-    .c2     { transform-box: fill-box; transform-origin: center; animation: breathe 6s ease-in-out -1.5s infinite; }
-    .c3     { transform-box: fill-box; transform-origin: center; animation: breathe 5.5s ease-in-out -3s infinite; }
-    .leaf   { transform-box: fill-box; transform-origin: center; opacity: 0; }
-    .l1 { animation: fall1 9s linear 0s infinite; }
-    .l2 { animation: fall2 11s linear 2.5s infinite; }
-    .l3 { animation: fall1 10s linear 5s infinite; }
-    .l4 { animation: fall2 12s linear 7s infinite; }
-    .l5 { animation: fall1 9.5s linear 3.8s infinite; }
-    .fly    { animation: glow 3s ease-in-out infinite; }
-    .f2 { animation-delay: -0.8s; } .f3 { animation-delay: -1.6s; } .f4 { animation-delay: -2.2s; } .f5 { animation-delay: -1.1s; }
-    .ground { animation: shimmer 6s ease-in-out infinite; }
+    .tree  { transform-box: view-box; transform-origin: 210px 400px; animation: sway 8s ease-in-out infinite; }
+    .s1    { transform-box: fill-box; transform-origin: center; animation: rustle 6s ease-in-out infinite; }
+    .s2    { transform-box: fill-box; transform-origin: center; animation: rustle 5s ease-in-out -2s infinite; }
+    .s3    { transform-box: fill-box; transform-origin: center; animation: rustle 7s ease-in-out -4s infinite; }
+    .fall  { opacity: 0; animation-name: fall; animation-timing-function: linear; animation-iteration-count: infinite; }
+    .drift { animation-name: drift; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
+    .fly   { animation: blink 3.2s ease-in-out infinite; }
+    .grass path { fill: none; stroke-width: 1.6; stroke-linecap: round; }
+    .grass { transform-box: view-box; transform-origin: 210px 402px; animation: sway 5s ease-in-out -1s infinite; }
 
-    @keyframes sway    { 0%,100% { transform: rotate(-1.4deg); } 50% { transform: rotate(1.4deg); } }
-    @keyframes breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.035); } }
-    @keyframes fall1 {
+    @keyframes sway   { 0%,100% { transform: rotate(-1.2deg); } 50% { transform: rotate(1.2deg); } }
+    @keyframes rustle { 0%,100% { transform: scale(1) translate(0,0); } 50% { transform: scale(1.025) translate(1.5px,-1px); } }
+    @keyframes fall {
       0%   { opacity: 0; transform: translate(0,0) rotate(0deg); }
-      8%   { opacity: 1; }
-      50%  { transform: translate(-28px,120px) rotate(160deg); }
-      90%  { opacity: 1; }
-      100% { opacity: 0; transform: translate(14px,230px) rotate(340deg); }
+      10%  { opacity: 1; }
+      55%  { transform: translate(var(--dx),100px) rotate(200deg); }
+      88%  { opacity: 1; }
+      100% { opacity: 0; transform: translate(calc(var(--dx) * -0.4),150px) rotate(380deg); }
     }
-    @keyframes fall2 {
-      0%   { opacity: 0; transform: translate(0,0) rotate(0deg); }
-      8%   { opacity: 1; }
-      50%  { transform: translate(30px,110px) rotate(-150deg); }
-      90%  { opacity: 1; }
-      100% { opacity: 0; transform: translate(-10px,220px) rotate(-320deg); }
-    }
-    @keyframes glow    { 0%,100% { opacity: .15; } 50% { opacity: 1; } }
-    @keyframes shimmer { 0%,100% { opacity: .55; } 50% { opacity: .9; } }
-    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .leaf { opacity: 0; } }
+    @keyframes drift  { 0%,100% { transform: translate(0,0); } 33% { transform: translate(10px,-14px); } 66% { transform: translate(-8px,-6px); } }
+    @keyframes blink  { 0%,100% { opacity: .1; } 50% { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .fall { opacity: 0; } }
   </style>
-
   <defs>
-    <radialGradient id="leafA" cx="40%" cy="35%" r="70%">
-      <stop offset="0" stop-color="#86efac"/><stop offset=".55" stop-color="#22c55e"/><stop offset="1" stop-color="#15803d"/>
-    </radialGradient>
-    <radialGradient id="leafB" cx="40%" cy="35%" r="70%">
-      <stop offset="0" stop-color="#4ade80"/><stop offset=".6" stop-color="#16a34a"/><stop offset="1" stop-color="#14532d"/>
-    </radialGradient>
-    <radialGradient id="leafC" cx="40%" cy="30%" r="75%">
-      <stop offset="0" stop-color="#bbf7d0"/><stop offset=".5" stop-color="#4ade80"/><stop offset="1" stop-color="#166534"/>
-    </radialGradient>
-    <linearGradient id="bark" x1="0" x2="1">
-      <stop offset="0" stop-color="#5b3a1e"/><stop offset=".5" stop-color="#7c5230"/><stop offset="1" stop-color="#4a2f17"/>
-    </linearGradient>
-    <radialGradient id="flyGlow">
-      <stop offset="0" stop-color="#ecfccb"/><stop offset=".35" stop-color="#a3e635" stop-opacity=".8"/><stop offset="1" stop-color="#a3e635" stop-opacity="0"/>
-    </radialGradient>
-    <path id="leafShape" d="M0 -7 C5 -5 6 3 0 8 C-6 3 -5 -5 0 -7 Z"/>
+    <radialGradient id="g0" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#166534"/><stop offset="1" stop-color="#052e16"/></radialGradient>
+    <radialGradient id="g1" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#16a34a"/><stop offset="1" stop-color="#14532d"/></radialGradient>
+    <radialGradient id="g2" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#4ade80"/><stop offset="1" stop-color="#15803d"/></radialGradient>
+    <radialGradient id="g3" cx="35%" cy="28%" r="80%"><stop offset="0" stop-color="#86efac"/><stop offset=".5" stop-color="#4ade80"/><stop offset="1" stop-color="#16a34a"/></radialGradient>
+    <linearGradient id="bark" x1="0" x2="1"><stop offset="0" stop-color="#3f2a17"/><stop offset=".45" stop-color="#7a5434"/><stop offset="1" stop-color="#2f1e10"/></linearGradient>
+    <radialGradient id="glow"><stop offset="0" stop-color="#fefce8"/><stop offset=".3" stop-color="#bef264" stop-opacity=".85"/><stop offset="1" stop-color="#84cc16" stop-opacity="0"/></radialGradient>
+    <radialGradient id="shadow"><stop offset="0" stop-color="#052e16" stop-opacity=".55"/><stop offset="1" stop-color="#052e16" stop-opacity="0"/></radialGradient>
+    <path id="leaf" d="M0 -6 C4.5 -4 5 3 0 7 C-5 3 -4.5 -4 0 -6 Z"/>
   </defs>
 
-  <!-- soft ground glow -->
-  <ellipse class="ground" cx="200" cy="404" rx="120" ry="10" fill="#22c55e" opacity=".6"/>
-  <ellipse cx="200" cy="404" rx="70" ry="5" fill="#14532d" opacity=".7"/>
+  <ellipse cx="210" cy="404" rx="150" ry="13" fill="url(#shadow)"/>
 
-  <g class="sway">
-    <!-- trunk and branches -->
-    <path d="M182 405 C186 360 182 320 174 296 L190 290 C196 312 200 330 200 350
-             C200 330 204 312 210 290 L226 296 C218 320 214 360 218 405 Z" fill="url(#bark)"/>
-    <path d="M178 300 C160 280 140 262 112 250" fill="none" stroke="url(#bark)" stroke-width="11" stroke-linecap="round"/>
-    <path d="M222 300 C242 278 262 262 290 248" fill="none" stroke="url(#bark)" stroke-width="11" stroke-linecap="round"/>
-    <path d="M196 292 C194 260 192 230 196 196" fill="none" stroke="url(#bark)" stroke-width="10" stroke-linecap="round"/>
-    <path d="M140 262 C130 240 128 222 132 206" fill="none" stroke="url(#bark)" stroke-width="6" stroke-linecap="round"/>
-    <path d="M262 262 C272 242 276 222 272 204" fill="none" stroke="url(#bark)" stroke-width="6" stroke-linecap="round"/>
-
-    <!-- canopy, back to front -->
-    <g class="c2">
-      <circle cx="110" cy="232" r="52" fill="url(#leafB)"/>
-      <circle cx="292" cy="230" r="54" fill="url(#leafB)"/>
-      <circle cx="200" cy="120" r="66" fill="url(#leafB)"/>
-    </g>
-    <g class="c1">
-      <circle cx="150" cy="170" r="62" fill="url(#leafA)"/>
-      <circle cx="252" cy="168" r="64" fill="url(#leafA)"/>
-      <circle cx="200" cy="215" r="70" fill="url(#leafA)"/>
-    </g>
-    <g class="c3">
-      <circle cx="132" cy="214" r="40" fill="url(#leafC)" opacity=".9"/>
-      <circle cx="268" cy="206" r="42" fill="url(#leafC)" opacity=".9"/>
-      <circle cx="190" cy="150" r="44" fill="url(#leafC)" opacity=".85"/>
-      <circle cx="232" cy="240" r="34" fill="url(#leafC)" opacity=".8"/>
+  <g class="tree">
+    <!-- roots -->
+    <path d="M196 398 C186 400 172 404 160 408 M224 398 C236 401 250 404 262 409 M206 400 C204 404 200 408 194 412"
+          fill="none" stroke="#3f2a17" stroke-width="5" stroke-linecap="round"/>
+    <!-- trunk: tapered and slightly curved -->
+    <path d="M186 402 C192 368 190 336 186 312 C182 294 174 280 162 268 L178 260 C190 272 198 286 204 300
+             C210 284 220 270 234 258 L248 268 C234 280 226 298 226 318 C226 346 228 374 238 402 Z" fill="url(#bark)"/>
+    <path d="M196 398 C199 368 198 340 195 318" fill="none" stroke="#a07047" stroke-width="2.5" opacity=".45" stroke-linecap="round"/>
+    <path d="M216 398 C214 372 215 346 218 322" fill="none" stroke="#2a1a0d" stroke-width="2" opacity=".5" stroke-linecap="round"/>
+    <!-- branch stubs that show below the crown -->
+    <g fill="none" stroke="url(#bark)" stroke-linecap="round">
+      <path d="M168 268 C152 258 138 252 122 250" stroke-width="7"/>
+      <path d="M242 264 C258 254 272 250 290 248" stroke-width="7"/>
     </g>
 
-    <!-- highlights -->
-    <circle cx="176" cy="120" r="10" fill="#dcfce7" opacity=".35"/>
-    <circle cx="238" cy="150" r="7"  fill="#dcfce7" opacity=".3"/>
-    <circle cx="124" cy="196" r="6"  fill="#dcfce7" opacity=".3"/>
-
-    <!-- falling leaves start inside the canopy -->
-    <use href="#leafShape" class="leaf l1" x="150" y="250" fill="#4ade80"/>
-    <use href="#leafShape" class="leaf l2" x="250" y="245" fill="#86efac"/>
-    <use href="#leafShape" class="leaf l3" x="205" y="270" fill="#22c55e"/>
-    <use href="#leafShape" class="leaf l4" x="115" y="265" fill="#a3e635"/>
-    <use href="#leafShape" class="leaf l5" x="285" y="262" fill="#4ade80"/>
+    <ellipse cx="210" cy="182" rx="104" ry="98" fill="#14532d"/><g class="s1"><circle cx="315.8" cy="168.2" r="31.4" fill="url(#g0)"/><circle cx="313.6" cy="191.9" r="33.2" fill="url(#g0)"/><circle cx="308.6" cy="215.2" r="29" fill="url(#g0)"/><circle cx="289.6" cy="228.4" r="33.8" fill="url(#g0)"/><circle cx="292.1" cy="242.9" r="32.3" fill="url(#g0)"/><circle cx="266.6" cy="259.9" r="31.3" fill="url(#g0)"/><circle cx="250.8" cy="254.7" r="33.1" fill="url(#g0)"/><circle cx="218.6" cy="263.8" r="30.4" fill="url(#g0)"/><circle cx="207.4" cy="261.7" r="26.8" fill="url(#g0)"/><circle cx="188" cy="256" r="26.5" fill="url(#g0)"/><circle cx="163.7" cy="251.8" r="31.7" fill="url(#g0)"/><circle cx="140.2" cy="244.6" r="33.7" fill="url(#g0)"/><circle cx="127.7" cy="225.9" r="33.5" fill="url(#g0)"/><circle cx="113.7" cy="211" r="32.2" fill="url(#g0)"/><circle cx="105.7" cy="188.3" r="29.9" fill="url(#g0)"/><circle cx="99.8" cy="179.9" r="29.9" fill="url(#g0)"/><circle cx="95" cy="160.7" r="29.2" fill="url(#g0)"/><circle cx="108.5" cy="132.8" r="29.4" fill="url(#g0)"/><circle cx="126.3" cy="130.8" r="28.6" fill="url(#g0)"/><circle cx="138.2" cy="112.5" r="28.5" fill="url(#g0)"/><circle cx="154.4" cy="88.2" r="26.2" fill="url(#g0)"/><circle cx="175.1" cy="80.2" r="30.3" fill="url(#g0)"/><circle cx="203.6" cy="71.1" r="30.3" fill="url(#g0)"/><circle cx="219.2" cy="79.6" r="29.3" fill="url(#g0)"/><circle cx="247.3" cy="73.7" r="31.1" fill="url(#g0)"/><circle cx="261.3" cy="85.6" r="28.9" fill="url(#g0)"/><circle cx="287.9" cy="108.7" r="27.3" fill="url(#g0)"/><circle cx="294.2" cy="124.6" r="32.6" fill="url(#g0)"/><circle cx="307.5" cy="128.6" r="32.2" fill="url(#g0)"/><circle cx="323" cy="148" r="32.7" fill="url(#g0)"/></g><g class="s2"><circle cx="256.6" cy="172.8" r="26.7" fill="url(#g1)"/><circle cx="195.6" cy="229.8" r="30" fill="url(#g1)"/><circle cx="165.4" cy="143.6" r="30.2" fill="url(#g1)"/><circle cx="220.4" cy="163.5" r="31.3" fill="url(#g1)"/><circle cx="251.7" cy="114.6" r="29.5" fill="url(#g1)"/><circle cx="122.7" cy="203.4" r="31.5" fill="url(#g1)"/><circle cx="177.7" cy="154.5" r="24.1" fill="url(#g1)"/><circle cx="205.5" cy="77.6" r="31.7" fill="url(#g1)"/><circle cx="194.2" cy="124.9" r="25.6" fill="url(#g1)"/><circle cx="288.2" cy="208" r="26.7" fill="url(#g1)"/><circle cx="208.6" cy="248.1" r="29.7" fill="url(#g1)"/><circle cx="223" cy="134.6" r="28" fill="url(#g1)"/><circle cx="209.8" cy="85" r="27.4" fill="url(#g1)"/><circle cx="127.7" cy="121.7" r="28.2" fill="url(#g1)"/><circle cx="210.2" cy="216.7" r="28.7" fill="url(#g1)"/><circle cx="215.7" cy="231.5" r="31.2" fill="url(#g1)"/><circle cx="308.7" cy="173.7" r="28.5" fill="url(#g1)"/><circle cx="286.5" cy="218.4" r="24.6" fill="url(#g1)"/><circle cx="219" cy="216.3" r="24.2" fill="url(#g1)"/><circle cx="185.1" cy="163.2" r="25.1" fill="url(#g1)"/><circle cx="106.4" cy="163.6" r="31.7" fill="url(#g1)"/><circle cx="155.8" cy="238.3" r="25" fill="url(#g1)"/><circle cx="199.5" cy="255.6" r="28.7" fill="url(#g1)"/><circle cx="299.2" cy="197" r="25" fill="url(#g1)"/><circle cx="203.3" cy="255.8" r="24.2" fill="url(#g1)"/><circle cx="211.3" cy="150.4" r="27.3" fill="url(#g1)"/></g><g class="s3"><circle cx="240.6" cy="167.1" r="26.3" fill="url(#g2)"/><circle cx="190.9" cy="212" r="26.6" fill="url(#g2)"/><circle cx="177.8" cy="214.4" r="26.6" fill="url(#g2)"/><circle cx="200.3" cy="188.2" r="27.2" fill="url(#g2)"/><circle cx="164.4" cy="165.1" r="21.8" fill="url(#g2)"/><circle cx="260.3" cy="126.6" r="26.7" fill="url(#g2)"/><circle cx="260.4" cy="142.8" r="21.9" fill="url(#g2)"/><circle cx="239.6" cy="181.1" r="22.7" fill="url(#g2)"/><circle cx="239.5" cy="208.4" r="21" fill="url(#g2)"/><circle cx="240.2" cy="192.8" r="25.9" fill="url(#g2)"/><circle cx="160.4" cy="167.1" r="26.6" fill="url(#g2)"/><circle cx="260.9" cy="164.5" r="21.6" fill="url(#g2)"/><circle cx="232" cy="96.5" r="22.1" fill="url(#g2)"/><circle cx="119.1" cy="170.9" r="22.5" fill="url(#g2)"/><circle cx="275.6" cy="192.4" r="26.7" fill="url(#g2)"/><circle cx="178.2" cy="171.1" r="24.7" fill="url(#g2)"/><circle cx="162.7" cy="146.9" r="21.8" fill="url(#g2)"/><circle cx="197.1" cy="167.1" r="24.6" fill="url(#g2)"/><circle cx="215.1" cy="185.4" r="22.8" fill="url(#g2)"/><circle cx="240.6" cy="150.8" r="25" fill="url(#g2)"/><circle cx="241.8" cy="151.7" r="25.1" fill="url(#g2)"/><circle cx="143" cy="126.8" r="20.2" fill="url(#g2)"/></g><g class="s2"><circle cx="143.4" cy="163.6" r="17.6" fill="url(#g3)"/><circle cx="195.1" cy="172.1" r="21.4" fill="url(#g3)"/><circle cx="170.9" cy="169.1" r="16.3" fill="url(#g3)"/><circle cx="211.1" cy="132.9" r="20.1" fill="url(#g3)"/><circle cx="175.6" cy="182.7" r="18.1" fill="url(#g3)"/><circle cx="171.3" cy="150.2" r="19.7" fill="url(#g3)"/><circle cx="140.2" cy="164" r="20" fill="url(#g3)"/><circle cx="169.5" cy="180.2" r="20.5" fill="url(#g3)"/><circle cx="209.9" cy="117.8" r="20.5" fill="url(#g3)"/><circle cx="197.3" cy="148" r="19.4" fill="url(#g3)"/><circle cx="167.3" cy="114.9" r="16.2" fill="url(#g3)"/><circle cx="163.8" cy="136.6" r="17.2" fill="url(#g3)"/><circle cx="209.5" cy="143.9" r="17" fill="url(#g3)"/><circle cx="144.9" cy="128.1" r="20.6" fill="url(#g3)"/></g>
+    <g><use href="#leaf" x="150" y="150.7" transform="rotate(-16.4 150 150.7)" fill="#bbf7d0" opacity="0.3"/><use href="#leaf" x="165.5" y="131" transform="rotate(-32.1 165.5 131)" fill="#bbf7d0" opacity="0.3"/><use href="#leaf" x="237.8" y="108.1" transform="rotate(37.2 237.8 108.1)" fill="#bbf7d0" opacity="0.3"/><use href="#leaf" x="154.5" y="116.5" transform="rotate(-37.5 154.5 116.5)" fill="#bbf7d0" opacity="0.4"/><use href="#leaf" x="126.6" y="162.6" transform="rotate(32.7 126.6 162.6)" fill="#bbf7d0" opacity="0.4"/><use href="#leaf" x="244" y="129.7" transform="rotate(-36.3 244 129.7)" fill="#bbf7d0" opacity="0.3"/><use href="#leaf" x="227" y="117.7" transform="rotate(32.1 227 117.7)" fill="#bbf7d0" opacity="0.3"/><use href="#leaf" x="203.7" y="159.3" transform="rotate(-33.3 203.7 159.3)" fill="#bbf7d0" opacity="0.6"/><use href="#leaf" x="194.2" y="117.4" transform="rotate(52.2 194.2 117.4)" fill="#bbf7d0" opacity="0.5"/><use href="#leaf" x="225.8" y="122.5" transform="rotate(22.2 225.8 122.5)" fill="#bbf7d0" opacity="0.4"/><use href="#leaf" x="158.4" y="108.5" transform="rotate(-52.9 158.4 108.5)" fill="#bbf7d0" opacity="0.6"/><use href="#leaf" x="198.3" y="144.8" transform="rotate(-54.1 198.3 144.8)" fill="#bbf7d0" opacity="0.5"/><use href="#leaf" x="225.9" y="135.3" transform="rotate(17.6 225.9 135.3)" fill="#bbf7d0" opacity="0.5"/><use href="#leaf" x="191.7" y="137.5" transform="rotate(40.4 191.7 137.5)" fill="#bbf7d0" opacity="0.6"/><use href="#leaf" x="148" y="115.4" transform="rotate(-47.2 148 115.4)" fill="#bbf7d0" opacity="0.4"/><use href="#leaf" x="223.3" y="160.8" transform="rotate(58.7 223.3 160.8)" fill="#bbf7d0" opacity="0.4"/><use href="#leaf" x="137.6" y="157.9" transform="rotate(4.2 137.6 157.9)" fill="#bbf7d0" opacity="0.3"/><use href="#leaf" x="156.9" y="112.8" transform="rotate(-39.9 156.9 112.8)" fill="#bbf7d0" opacity="0.3"/><use href="#leaf" x="148.2" y="130.9" transform="rotate(17.4 148.2 130.9)" fill="#bbf7d0" opacity="0.3"/><use href="#leaf" x="174.8" y="167.2" transform="rotate(-23.9 174.8 167.2)" fill="#bbf7d0" opacity="0.4"/><use href="#leaf" x="268.2" y="132" transform="rotate(-10.1 268.2 132)" fill="#bbf7d0" opacity="0.4"/><use href="#leaf" x="258" y="140.7" transform="rotate(-48.6 258 140.7)" fill="#bbf7d0" opacity="0.3"/></g>
+    <g class="fall" style="--dx:25.2px;animation-duration:11.2s;animation-delay:-0.5s"><use href="#leaf" x="271.9" y="242.5" fill="#4ade80"/></g><g class="fall" style="--dx:-40.7px;animation-duration:11.8s;animation-delay:-9.1s"><use href="#leaf" x="287.2" y="237.6" fill="#86efac"/></g><g class="fall" style="--dx:38.7px;animation-duration:11.5s;animation-delay:-4.3s"><use href="#leaf" x="131.9" y="226" fill="#22c55e"/></g><g class="fall" style="--dx:-13.1px;animation-duration:10.9s;animation-delay:-2.3s"><use href="#leaf" x="166.1" y="251.4" fill="#a3e635"/></g><g class="fall" style="--dx:0.6px;animation-duration:12s;animation-delay:-1.9s"><use href="#leaf" x="286.4" y="228" fill="#facc15"/></g><g class="fall" style="--dx:-38.3px;animation-duration:11.4s;animation-delay:-11.5s"><use href="#leaf" x="279.4" y="249.5" fill="#4ade80"/></g><g class="fall" style="--dx:-40.6px;animation-duration:9.4s;animation-delay:-9.8s"><use href="#leaf" x="198.3" y="230.5" fill="#86efac"/></g>
   </g>
 
-  <!-- fireflies -->
-  <circle class="fly"    cx="70"  cy="150" r="9" fill="url(#flyGlow)"/>
-  <circle class="fly f2" cx="340" cy="120" r="8" fill="url(#flyGlow)"/>
-  <circle class="fly f3" cx="330" cy="300" r="9" fill="url(#flyGlow)"/>
-  <circle class="fly f4" cx="60"  cy="320" r="7" fill="url(#flyGlow)"/>
-  <circle class="fly f5" cx="200" cy="40"  r="8" fill="url(#flyGlow)"/>
+  <g class="grass"><path d="M204.6 402 q2.5 -6.9 3.9 -13.9" stroke="#22c55e"/><path d="M149.3 402 q4.4 -8.5 7 -17.1" stroke="#16a34a"/><path d="M233.2 402 q-2.8 -7.5 -4.6 -14.9" stroke="#16a34a"/><path d="M178.5 402 q-3.8 -8.7 -6.1 -17.3" stroke="#22c55e"/><path d="M121.2 402 q-0.6 -6.2 -1 -12.4" stroke="#22c55e"/><path d="M129.9 402 q-1.5 -4.9 -2.3 -9.8" stroke="#16a34a"/><path d="M270.7 402 q-3.6 -7 -5.8 -13.9" stroke="#16a34a"/><path d="M165.2 402 q4.9 -6.1 7.9 -12.3" stroke="#16a34a"/><path d="M121.6 402 q-2 -6 -3.3 -11.9" stroke="#22c55e"/><path d="M190.8 402 q0.8 -8.6 1.2 -17.1" stroke="#16a34a"/><path d="M280.5 402 q-2.6 -8.5 -4.1 -16.9" stroke="#16a34a"/><path d="M129.8 402 q0.9 -5 1.5 -9.9" stroke="#16a34a"/><path d="M168.7 402 q4.5 -4.1 7.2 -8.2" stroke="#16a34a"/><path d="M286.7 402 q-3.2 -7.9 -5.1 -15.7" stroke="#22c55e"/><path d="M198.4 402 q-3 -8.5 -4.9 -17" stroke="#22c55e"/><path d="M204.8 402 q-3.3 -5.5 -5.3 -11" stroke="#16a34a"/><path d="M199.8 402 q-2.7 -6.5 -4.3 -12.9" stroke="#22c55e"/><path d="M211.6 402 q-0.6 -7.9 -1 -15.8" stroke="#16a34a"/><path d="M219.2 402 q0.2 -6.9 0.4 -13.8" stroke="#16a34a"/><path d="M154.8 402 q-1.9 -8.8 -3.1 -17.7" stroke="#16a34a"/><path d="M162.7 402 q-0.6 -4.4 -1 -8.8" stroke="#22c55e"/><path d="M265.5 402 q3 -4.7 4.8 -9.5" stroke="#22c55e"/><path d="M168.9 402 q2.4 -5.8 3.9 -11.6" stroke="#16a34a"/><path d="M127.4 402 q-3.2 -7 -5.1 -13.9" stroke="#16a34a"/><path d="M246 402 q-1 -8.4 -1.6 -16.8" stroke="#22c55e"/><path d="M246 402 q-0.9 -4.3 -1.5 -8.7" stroke="#16a34a"/></g>
+  <g class="drift" style="animation-duration:8.7s;animation-delay:-8.4s"><circle class="fly" style="animation-delay:-1.6s" cx="357" cy="186.5" r="6.8" fill="url(#glow)"/></g><g class="drift" style="animation-duration:6.6s;animation-delay:-3.4s"><circle class="fly" style="animation-delay:-1.7s" cx="267.8" cy="195.1" r="7.4" fill="url(#glow)"/></g><g class="drift" style="animation-duration:7.4s;animation-delay:-1.8s"><circle class="fly" style="animation-delay:-0.8s" cx="254.2" cy="303.3" r="6.5" fill="url(#glow)"/></g><g class="drift" style="animation-duration:8.7s;animation-delay:-3.5s"><circle class="fly" style="animation-delay:-2.2s" cx="94.9" cy="53.4" r="6.3" fill="url(#glow)"/></g><g class="drift" style="animation-duration:7s;animation-delay:-4.3s"><circle class="fly" style="animation-delay:-1s" cx="59.7" cy="73.7" r="6.5" fill="url(#glow)"/></g><g class="drift" style="animation-duration:8.8s;animation-delay:-4.3s"><circle class="fly" style="animation-delay:-0.1s" cx="69.1" cy="311.8" r="7.1" fill="url(#glow)"/></g><g class="drift" style="animation-duration:10.5s;animation-delay:-8.6s"><circle class="fly" style="animation-delay:-0.9s" cx="92.9" cy="95.3" r="5.1" fill="url(#glow)"/></g><g class="drift" style="animation-duration:6.3s;animation-delay:-7.6s"><circle class="fly" style="animation-delay:-0.8s" cx="372.3" cy="170.1" r="5.8" fill="url(#glow)"/></g><g class="drift" style="animation-duration:7.5s;animation-delay:-8.9s"><circle class="fly" style="animation-delay:-2.3s" cx="202.2" cy="304.2" r="6.9" fill="url(#glow)"/></g>
 </svg>
