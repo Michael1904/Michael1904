@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 120" width="900" height="120" role="img" aria-label="Animated green waves">
+  <style>
+    .w   { fill: none; stroke-linecap: round; }
+    .w1  { stroke: #22c55e; stroke-width: 2.5; stroke-dasharray: 14 10; animation: flow 3s linear infinite; }
+    .w2  { stroke: #4ade80; stroke-width: 1.6; opacity: .7; stroke-dasharray: 6 12; animation: flow 4.5s linear infinite reverse; }
+    .w3  { stroke: #15803d; stroke-width: 1.2; opacity: .6; stroke-dasharray: 2 8; animation: flow 6s linear infinite; }
+    .pulse { animation: pulse 2.4s ease-in-out infinite; }
+    @keyframes flow  { to { stroke-dashoffset: -240; } }
+    @keyframes pulse { 0%,100% { opacity: .35; } 50% { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+  <defs>
+    <linearGradient id="fade" x1="0" x2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".12" stop-color="#fff" stop-opacity="1"/>
+      <stop offset=".88" stop-color="#fff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="edges"><rect width="900" height="120" fill="url(#fade)"/></mask>
+    <radialGradient id="dot">
+      <stop offset="0" stop-color="#ecfccb"/><stop offset=".4" stop-color="#4ade80"/><stop offset="1" stop-color="#22c55e" stop-opacity="0"/>
+    </radialGradient>
+    <path id="p1" d="M0 60 C 75 20, 150 20, 225 60 S 375 100, 450 60 S 600 20, 675 60 S 825 100, 900 60"/>
+    <path id="p2" d="M0 60 C 75 95, 150 95, 225 60 S 375 25, 450 60 S 600 95, 675 60 S 825 25, 900 60"/>
+  </defs>
+
+  <g mask="url(#edges)">
+    <use href="#p1" class="w w1"/>
+    <use href="#p2" class="w w2"/>
+    <path class="w w3" d="M0 60 H900"/>
+
+    <circle r="7" fill="url(#dot)">
+      <animateMotion dur="5s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion>
+    </circle>
+    <circle r="6" fill="url(#dot)">
+      <animateMotion dur="7s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#p2"/></animateMotion>
+    </circle>
+    <circle r="5" fill="url(#dot)">
+      <animateMotion dur="5s" begin="-2.5s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion>
+    </circle>
+  </g>
+
+  <!-- center node -->
+  <circle cx="450" cy="60" r="16" fill="#052e16" stroke="#22c55e" stroke-width="2"/>
+  <circle class="pulse" cx="450" cy="60" r="24" fill="none" stroke="#4ade80" stroke-width="1.2"/>
+  <path d="M443 55 l-6 5 6 5 M457 55 l6 5 -6 5 M452 51 l-4 18" fill="none" stroke="#86efac" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
