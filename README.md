@@ -9,7 +9,7 @@
 
 </div>
 
-<img align="right" width="230" src="assets/tree-lantern-v2.svg" alt="" />
+<img align="right" width="230" src="assets/tree-lantern-v2.svg" alt="Animated tree with a lantern hanging from a branch" />
 
 ### About
 
@@ -21,7 +21,7 @@ I like owning a feature from the database table to the button that uses it, and 
 
 <div align="center">
 
-<img src="assets/waves.svg" width="100%" alt="" />
+<img src="assets/waves.svg" width="100%" alt="Animated green waves" />
 
 <img src="https://skillicons.dev/icons?i=ts,js,nextjs,react,nodejs,express,tailwind,threejs,py,postgres,sqlite,docker,linux,git&theme=dark&perline=14" alt="Tech stack" />
 
