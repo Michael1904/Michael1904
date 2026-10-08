@@ -3,9 +3,9 @@
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1e1b4b,50:4c1d95,100:7c3aed&height=180&section=header&text=Michael&fontSize=60&fontColor=ffffff&fontAlignY=36&desc=Full-Stack%20Developer&descAlignY=58&descSize=20" width="100%" alt="Michael — Full-Stack Developer" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:052e16,50:166534,100:22c55e&height=180&section=header&text=Michael&fontSize=60&fontColor=ffffff&fontAlignY=36&desc=Full-Stack%20Developer&descAlignY=58&descSize=20" width="100%" alt="Michael — Full-Stack Developer" />
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&duration=3200&pause=900&color=A78BFA&center=true&vCenter=true&width=640&lines=TypeScript+%C2%B7+Next.js+%C2%B7+Node.js;Python+services+and+automation;PostgreSQL+data+modelling;From+schema+to+production" alt="TypeScript · Next.js · Node.js · Python · PostgreSQL" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&duration=3200&pause=900&color=4ADE80&center=true&vCenter=true&width=640&lines=TypeScript+%C2%B7+Next.js+%C2%B7+Node.js;Python+services+and+automation;PostgreSQL+data+modelling;From+schema+to+production" alt="TypeScript · Next.js · Node.js · Python · PostgreSQL" />
 
 </div>
 
@@ -84,4 +84,4 @@ Relational model for a telephone exchange: subscribers, phone numbers, tariffs a
   </picture>
 </p>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:7c3aed,50:4c1d95,100:1e1b4b&height=100&section=footer" width="100%" alt="" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:22c55e,50:166534,100:052e16&height=100&section=footer" width="100%" alt="" />
